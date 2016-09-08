@@ -34,7 +34,9 @@ $(function () {
 
         var ticketsLine = $('#tickets-line');
 
-        function appendTicket(element) {
+        function appendTicket(element, cb) {
+            var countTickets = ticketsLine.find('.ticket').length + 1;
+
             ticketsLine.append(
                 element
                     .clone()
@@ -44,8 +46,8 @@ $(function () {
                     })
                     .show()
                     .animate({
-                        "bottom": $('body').height() - (ticketsLine.find('.ticket').length+1) * 125
-                    }, 900)
+                        "bottom": $('body').height() - countTickets*125
+                    }, 300)
             );
         }
 
