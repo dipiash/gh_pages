@@ -34,6 +34,21 @@ $(function () {
 
         var ticketsLine = $('#tickets-line');
 
+        function appendTicket(element) {
+            ticketsLine.append(
+                element
+                    .clone()
+                    .css({
+                        "position": "absolute",
+                        "bottom": 0
+                    })
+                    .show()
+                    .animate({
+                        "bottom": $('body').height() - (ticketsLine.find('.ticket').length+1) * 125
+                    }, 900)
+            );
+        }
+
         return {
             showMessage: function (text) {
                 if ($('body').hasClass('dark')) {
@@ -41,21 +56,13 @@ $(function () {
                         .find('.ticket__text')
                         .text(text);
 
-                    ticketsLine.append(
-                        cloneTicketDark
-                            .clone()
-                            .show()
-                    );
+                    appendTicket(cloneTicketDark);
                 } else {
                     cloneTicketLight
                         .find('.ticket__text')
                         .text(text);
 
-                    ticketsLine.append(
-                        cloneTicketLight
-                            .clone()
-                            .show()
-                    );
+                    appendTicket(cloneTicketLight);
                 }
             }
         }
