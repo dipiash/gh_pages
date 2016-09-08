@@ -1,5 +1,9 @@
 $(function () {
     window.app = new function () {
+        var cloneTicket = $('.ticket__clone')
+            .clone()
+            .removeClass('ticket__clone');
+
         this.body = $('body');
         $('#lightSwitch').on('click', $.proxy(function () {
             this.body.toggleClass('dark');
@@ -10,5 +14,9 @@ $(function () {
                 $(this).find('.ticket__round-item').toggleClass('ticket__round-item--dark')
             });
         }, this));
+
+        $('button').on('click', function () {
+
+        });
     }();
 });
