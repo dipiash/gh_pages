@@ -1,13 +1,5 @@
 $(function () {
     window.app = new function () {
-        var cloneTicket = $('.ticket__clone')
-            .clone()
-            .removeClass('ticket__clone');
-
-        var ticketsLine = $('#tickets-line');
-
-        var messageC = messageControls();
-
         this.body = $('body');
         $('#lightSwitch').on('click', $.proxy(function () {
             this.body.toggleClass('dark');
@@ -20,16 +12,46 @@ $(function () {
         }, this));
 
         $('button').on('click', function () {
-            messageC.showMessage('asdfsdaf')
+            messageControls.showMessage('asdfsdaf')
         });
     }();
 
     // Module for message controls
-    var messageControls =function () {
+    var messageControls = function () {
+        var cloneTicketLight = $('.ticket__clone')
+            .clone()
+            .removeClass('ticket__clone');
+
+        var cloneTicketDark = $('.ticket-dark__clone')
+            .clone()
+            .removeClass('.ticket-dark__clone');
+
+        var ticketsLine = $('#tickets-line');
+
         return {
             showMessage: function (text) {
-                alert(text)
+                if ($('body').hasClass('dark')) {
+                    cloneTicketDark
+                        .find('.ticket__text')
+                        .text(text);
+
+                    ticketsLine.append(
+                        cloneTicketDark
+                            .clone()
+                            .show()
+                    );
+                } else {
+                    cloneTicketLight
+                        .find('.ticket__text')
+                        .text(text);
+
+                    ticketsLine.append(
+                        cloneTicketLight
+                            .clone()
+                            .show()
+                    );
+                }
             }
         }
-    };
+    }();
 });
