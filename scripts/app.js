@@ -12,7 +12,13 @@ $(function () {
         }, this));
 
         $('button').on('click', function () {
-            messageControls.showMessage('asdfsdaf')
+            var text = $('#MessageInput').val().trim();
+
+            if (text !== '') {
+                messageControls.showMessage(text);
+            } else {
+                alert('You should input text!');
+            }
         });
     }();
 
