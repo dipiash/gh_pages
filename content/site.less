@@ -32,7 +32,7 @@ body.dark {
   border-left: 5px solid hsl(225, 8%, 40%);
 }
 
-.dark .light{
+.dark .light {
   background-color: white;
 }
 
@@ -40,10 +40,10 @@ body.dark {
 
 .dialog-box {
   position: absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   height: 113px;
   width: 280px;
   display: inline-block;
@@ -65,9 +65,9 @@ body.dark {
   padding-top: 0;
 }
 
-.textbox, .button{
-  display:inline-block;
-  width:100%;
+.textbox, .button {
+  display: inline-block;
+  width: 100%;
 }
 
 .textbox {
@@ -118,9 +118,13 @@ body.dark {
     -webkit-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+
+    position: relative;
   }
 
   &__title, &__message {
+    padding: 12px;
+
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -131,6 +135,7 @@ body.dark {
   &__title {
     min-height: 100px;
     width: 100px;
+    border-right: 1px dotted #fff;
   }
 
   &__message {
@@ -144,5 +149,49 @@ body.dark {
 
   &__text {
 
+  }
+
+  &__round-item1,
+  &__round-item2,
+  &__round-item3,
+  &__round-item4,
+  &__round-item5,
+  &__round-item6
+  {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  &__round-item1 {
+    top: -12px;
+    left: -12px;
+  }
+
+  &__round-item2 {
+    top: -12px;
+    right: -12px;
+  }
+
+  &__round-item3 {
+    bottom: -12px;
+    right: -12px;
+  }
+
+  &__round-item4 {
+    bottom: -12px;
+    left: -12px;
+  }
+
+  &__round-item5 {
+    top: -12px;
+    left: 87px;
+  }
+
+  &__round-item6 {
+    bottom: -12px;
+    left: 87px;
   }
 }
