@@ -105,16 +105,37 @@ body.dark {
 /* -- Ticket -- */
 
 .ticket {
-  &__container {
+  box-sizing: border-box;
+  min-height: 125px;
+  width: 324px;
+  padding: 12px;
 
+  &__container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+  }
+
+  &__title, &__message {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+
+    background: #FFE1B3;
   }
 
   &__title {
-
+    min-height: 100px;
+    width: 100px;
   }
 
   &__message {
-
+    min-height: 100px;
+    width: 200px;
   }
 
   &__header {
