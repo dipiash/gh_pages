@@ -47,8 +47,28 @@ $(function () {
                     .show()
                     .animate({
                         "bottom": $('body').height() - countTickets*125
-                    }, 300)
+                    }, 300, function () {
+                        clearTickets();
+                    })
             );
+        }
+
+        function clearTickets() {
+            var tickets = ticketsLine.find('.ticket');
+
+            if (tickets.length !== 0) {
+                if (tickets.last().position().top >= $('body').height() / 2) {
+                    tickets.first().remove();
+
+                    tickets
+                        .each(function (index) {
+                            $(this)
+                                .animate({
+                                    "bottom": $('body').height() - index * 125
+                                }, 300)
+                        })
+                }
+            }
         }
 
         return {
